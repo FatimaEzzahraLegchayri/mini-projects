@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Palestine</title>
+</head>
+<body>
+    <script>
+        let body = document.querySelector("body")
+        body.style.margin = "0px";
+        body.style.backgroundColor = "white";
+
+        let container = document.createElement("div");
+        // container.style.margin = "0";
+        container.style.width = "100%"
+        container.style.height = "100vh"
+        container.style.position = "relative";
+        body.appendChild(container);
+
+        let black = document.createElement("div")
+        black.style.position = "absolute";
+        black.style.width= "100%";
+        black.style.height= "33.333%";
+        black.style.top= "0";
+        black.style.backgroundColor = "black";
+        container.appendChild(black)
+
+        let green = document.createElement("div")
+        green.style.position = "absolute";
+        green.style.width= "100%";
+        green.style.height= "33.3333%";
+        green.style.bottom= "0";
+        green.style.backgroundColor = "green";
+        container.appendChild(green)
+
+        let red = document.createElement("div")
+        red.style.position = "absolute"
+        red.style.borderStyle = "solid";
+        red.style.borderColor = "transparent transparent transparent red";
+        red.style.borderWidth= "50vh"
+        // red.style.borderHeight= "100vh"
+        container.appendChild(red)
+
+
+    </script>
+</body>
+</html>
