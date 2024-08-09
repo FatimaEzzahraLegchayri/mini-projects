@@ -4,12 +4,14 @@
     box-sizing: border-box;
 }
 .container{
-    background: linear-gradient(13deg, #153677, #4e085f);
+    background: linear-gradient(13deg, #777715, #0b775a);
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
+
 }
 
 .to-do-list{
@@ -53,22 +55,34 @@
     border-radius: 20px;
     padding: 10px;
     font-size: 0.5em;
-    background-color: #ff5945 ;
+    background-color: #d4a90f ;
     font-weight: bold;
     color: white;
     cursor: pointer;
 }
-
+ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 3em ;
+}
 ul li{
     list-style: none;
     font-size: 2.4em;
-    /* padding: 10px 10px 10px 90px; */
     padding: 0 2.3em;
     color: rgb(41, 39, 39);
     user-select: none;
     cursor: pointer;
     position: relative;
-
+}
+.deletIcon{
+    color: #153677;
+    font-size: 2em;
+}
+.deletIcon:hover{
+    background-color: rgb(243, 238, 238);
+    border-radius: 50%;
+    cursor: pointer;
 }
 ul li::before{
     content: '';
@@ -77,16 +91,28 @@ ul li::before{
     width: 28px;
     border: 1px solid red;
     border-radius: 50%;
-    /* background-image:'./images/check-regular-24.png' ; */
     background-size: cover;
     background-position: center;
     top: 0.3em;
     left: 1.3em;
 }
-ul li.checked{
-    text-decoration: line-through;
-    color: #555;
+.rowtask{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-ul li.checked::before{
+
+.isChecked{
+    text-decoration: line-through;
+    color: gray;
+}
+ul li.isChecked::before{
     background-color: red;
- }
+    background-image:url('./images/5291043.png') ;
+
+}
+ul li span::before{
+    display: none;
+}
+
+@media 
