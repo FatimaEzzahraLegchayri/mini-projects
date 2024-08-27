@@ -5,33 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRODUCT MANAGEMENT SYSTEM</title>
     <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
-    <div class="cruds">
-        <header>
-            <h2>Cruds</h2>
+    <header>
             <H6>PRODUCT MANAGEMENT SYSTEM</H6>
-        </header>
+    </header>
+    <div class="cruds">
         <div class="inputs">
-            <input id="title" class="title input toUpdate" type="text" placeholder="Title">
             <div class="price">
+                <input id="title" class="title input toUpdate" type="text" placeholder="Title">
                 <input class="input toUpdate" onkeyup="getTotal()" type="number" id="price" placeholder="Price">
                 <input class="input toUpdate" onkeyup="getTotal()" type="number" id="taxes" placeholder="Taxes">
                 <input class="input toUpdate" onkeyup="getTotal()" type="number" id="ads" placeholder="Ads">
                 <input class="input toUpdate" onkeyup="getTotal()" type="number" id="discount" placeholder="Discout">
                 <button id="total" class="total toUpdate" > total:</button>
-            </div>
+                
                 <input id="count" class="title input toUpdate" type="number" placeholder="Count">
                 <input id="category" class="title input toUpdate" type="text" placeholder="Category">
-                <button type="submit" id="submit">Create</button>
+                <button type="submit" id="submit" class="create">Create</button>
+            </div>
         </div>
         
         <div class="outputs">
-            <input class="title" onkeyup="searchData(this.value)" type="text" name="" id="search" placeholder="Seach">
-            <div class="searchBy">
-                <button onclick="getSearchMood(this.id)" id="searchByTitle">Search by title </button>
-                <button onclick="getSearchMood(this.id)" id="searchByCategory">Search by gategory</button>
-            </div>
+            <input class="title" onkeyup="searchData(this.value)" type="text" id="search" placeholder="Seach by title">
             <button class="title deleteAll" id="deleteAll"></button>
             <table>
                 <tr class="row" id="row">
@@ -56,8 +54,8 @@
                     <td>19</td>
                     <td>46</td>
                     <td>phone</td>
-                    <td><button class="update">update</button></td>
-                    <td><button class="delete">delete</button></td>`
+                    <td <i class='bx bx-edit' ></i></td>
+                    <td <i class='bx bx-trash'></i></td>
                     </tr> -->
                 </tbody>
                 

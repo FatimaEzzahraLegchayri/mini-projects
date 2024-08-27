@@ -18,10 +18,12 @@ function getTotal(){
     if( price.value != ''){
         let rt = (+price.value + +taxes.value + +ads.value) - +discount.value
         total.innerHTML = rt
-        total.style.background = 'green'
+        total.style.background = '#ec9141'
+        total.style.color = 'white'
+
     }else{
         total.innerHTML = ''
-        total.style.background = 'red'
+        total.style.background = 'white'
     }
 }
 
@@ -41,9 +43,9 @@ function saveItem(){
 function getItem(){
     let storedItems = localStorage.getItem('productKey')
     if(storedItems){
-        JSON.parse(localStorage.getItem('productKey'))
+        arr = JSON.parse(storedItems)
         document.getElementById('message').innerHTML = ''
-        localStorage.setItem
+        // localStorage.setItem
 
     }else{
         document.getElementById('message').innerHTML = 'No product available!'
@@ -85,7 +87,7 @@ submit.addEventListener('click',function(){
     // }
     clearInput() 
     total.innerHTML = ''
-    total.style.background = '#cc0606'
+    total.style.background = 'white'
     showProduct()
     console.log('stored pdts ',arr)
 })
@@ -103,8 +105,8 @@ function showProduct(){
                     <td>${arr[i].discount}</td>
                     <td>${arr[i].total}</td>
                     <td>${arr[i].category}</td>
-                    <td><button onClick = update(${i}) class="update">update</button></td>
-                    <td><button onClick=remove(${i}) class="delete">delete</button></td>
+                    <td onClick = 'update(${i})' class="update"><i class='bx bx-edit' ></i></td>
+                <td onClick='remove(${i})' class="delete"><i class='bx bx-trash'></i></td>
                     </tr>`
     }
     document.getElementById('tbody').innerHTML = list
@@ -157,27 +159,37 @@ function remove(i){
     
 }
 // search by ctg / title
-searchSwitch = 'title'
-function getSearchMood(id) {
-    let searchInput = document.getElementById('search');
-    
-    if (id === 'searchByTitle') {
-        searchSwitch = 'title'; 
-        searchInput.placeholder = 'Search by title';
-    } else {
-        searchSwitch = 'category'; 
-        searchInput.placeholder = 'Search by category';
-    }
-    searchInput.focus()
-}
-
-function searchData(value){
-    if(searchSwitch === 'title'){
-        for(i=0; i<arr.length ; i++){
-            if(arr[i].title.includes(value))
+function searchData(value) {
+    let searchResults = '';
+    value = value.toLowerCase();
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].title.toLowerCase().includes(value)) {
+            searchResults += generateRow(i);
         }
     }
+    if (searchResults === '') {
+        searchResults = `<tr><td colspan="10">No product found</td></tr>`;
+    }
+
+    document.getElementById('tbody').innerHTML = searchResults;
 }
+
+function generateRow(i) {
+    return `<tr>
+                <td>${i + 1}</td>
+                <td>${arr[i].title}</td>
+                <td>${arr[i].price}</td>
+                <td>${arr[i].taxes}</td>
+                <td>${arr[i].ads}</td>
+                <td>${arr[i].discount}</td>
+                <td>${arr[i].total}</td>
+                <td>${arr[i].category}</td>
+                <td onClick="update(${i})" class="update"><i class='bx bx-edit' ></i></td>
+                <td onClick='remove(${i})' class="delete"><i class='bx bx-trash'></i></td>
+            </tr>`;
+}
+
+
 // delete all
 function deleteAll(){
     arr=[]
