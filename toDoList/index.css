@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 .container{
-    background: linear-gradient(13deg, #777715, #0b775a);
+    background: #275CAC;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -55,10 +55,11 @@
     border-radius: 20px;
     padding: 10px;
     font-size: 0.5em;
-    background-color: #d4a90f ;
+    background-color: #ed8d1f ;
     font-weight: bold;
     color: white;
     cursor: pointer;
+    border: none;
 }
 ul{
     display: flex;
@@ -107,12 +108,103 @@ ul li::before{
     color: gray;
 }
 ul li.isChecked::before{
-    background-color: red;
+    background-color: rgb(238, 154, 0);
     background-image:url('./images/5291043.png') ;
 
 }
 ul li span::before{
     display: none;
 }
+@media(max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
 
-/* @media  */
+    .to-do-list {
+        padding: 15px;
+    }
+
+    .input {
+        flex-direction: column;
+    }
+
+    #input-box {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .title-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Tablet */
+@media(min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .to-do-list {
+        padding: 20px;
+        width: 92vw;
+        height: 97vh;
+    }
+
+    .input {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .input input {
+        width: 18em;
+    }
+    .input button {
+        width: 18em;
+        border: none;
+        font-size: 0.5em;
+    }
+    .rowtask{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+    ul li::before {
+        left: 0em;
+    }
+    ul li{
+        padding: 0em 1em;
+    }
+    ul{
+        padding: 0;
+        margin-top: 4em;
+    }
+}
+
+/* Small Desktop */
+@media(min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 20px;
+    }
+
+    .to-do-list {
+        padding: 25px;
+    }
+    .input{
+        width: 75vw;
+    }
+}
+
+/* Large Screen */
+@media(min-width: 1025px) {
+    .container {
+        padding: 30px;
+    }
+
+    .to-do-list {
+        padding: 30px;
+    }
+}
